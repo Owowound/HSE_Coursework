@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillInterval: 0
   lastSkill: 0
-  modifier: 1.5
+  playerData: {fileID: 11400000, guid: 7f2a5a1bd062f8b47b993db4216c716b, type: 2}
+  stateName: 2
+  modifier: 0.8

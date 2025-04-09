@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - Enemy
   layers:
@@ -16,7 +16,7 @@ TagManager:
   - Player
   - Ground
   - Enemy
-  - 
+  - InteractiveObjects
   - 
   - 
   - 
@@ -48,12 +48,8 @@ TagManager:
   - name: Ground
     uniqueID: 2289545253
     locked: 0
-  - name: Player
+  - name: 
     uniqueID: 3709172415
     locked: 0
-  - name: Body
-    uniqueID: 2046525617
-    locked: 0
-  - name: Other Body
-    uniqueID: 3760864455
-    locked: 0
+  m_RenderingLayers:
+  - Default

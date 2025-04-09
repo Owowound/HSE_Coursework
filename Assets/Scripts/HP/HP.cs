@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using TreeEditor;
+using TMPro;
 using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -27,29 +27,42 @@ public abstract class HP : MonoBehaviour
     }
 
     protected bool isDead = false;
+
+    public bool canTakeDamage = true;
+
+    [SerializeField] protected GameObject textDamagePrefab;
+    [SerializeField] protected GameObject canvas;
     protected virtual void Start()
     {
         currentHP = maxHP;
+        animator = GetComponent<Animator>();
         //sliderHP.maxValue = maxHP;
         //sliderHP.value = currentHP;
-        animator = GetComponent<Animator>();
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, DamageType damageType)
     {
         if (isDead)
         {
             return;
         }
-        damage = CalculatingDamage(damage);
+        damage = CalculatingDamage(damage, damageType);
         currentHP -= damage;
+        GameObject damageObject = Instantiate(textDamagePrefab, transform.position, Quaternion.identity);
+        damageObject.transform.SetParent(canvas.transform);
+        damageObject.transform.localScale = Vector3.one;
+        damageObject.GetComponent<TextMeshProUGUI>().text = "-" + damage.ToString();
         Debug.Log($"{transform.name} is took {damage} damages. Now current HP is {currentHP}");
-        //sliderHP.value = currentHP;
         SetAnimation(damage);
         if (currentHP <= 0)
         {
             Die();
         }
+    }
+
+    public virtual void Heal(float healAmount)
+    {
+        ;
     }
     protected virtual void Die()
     {
@@ -64,5 +77,5 @@ public abstract class HP : MonoBehaviour
             animator.SetTrigger("TakeDamage");
         }
     }
-    protected abstract float CalculatingDamage(float damage);
+    public abstract float CalculatingDamage(float damage, DamageType damageType);
 }

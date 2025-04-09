@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using static UnityEngine.EventSystems.EventTrigger;
 using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine.Animations;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private bool FacingRight = true;
     public bool canNormalize { get; set; } = true;
 
+    private bool canMove = true;
     private bool canRoll = true;
     private bool isRolling = false;
     public bool rollState
@@ -48,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
     // 
     private Animator animator;
+
+    private Pause pause;
     void Start()
     {
         Debug.Log("PlayerMovement is initialized");
@@ -56,13 +57,32 @@ public class PlayerMovement : MonoBehaviour
         stateManager = GetComponent<StateManager>();
         currentSpeed = moveSpeed;
         playerHP = GetComponent<PlayerHP>();
+        pause = GetComponent<Pause>();
     }
 
+    /// <summary>
+    /// Ban any act of player
+    /// </summary>
+    public void BanAct()
+    {
+        canMove = false;
+        canNormalize = false;
+        canRoll = false;
+    }
+
+    /// <summary>
+    /// Allow act
+    /// </summary>
+    public void AllowAct()
+    {
+        canMove = true;
+        canNormalize = true;
+        canRoll = true;
+    }
 
     void Update()
     {
-        //Debug.Log(playerHP.currentHP);
-        if (rb.isKinematic)
+        if (rb.isKinematic || pause.isPaused)
         {
             return;
         }
@@ -81,7 +101,15 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Movement()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        float horizontal;
+        if (!GetComponent<PlayerHP>().IsDead)
+        {
+            horizontal = Input.GetAxis("Horizontal");
+        }
+        else
+        {
+            horizontal = 0;    
+        }
 
         if (canNormalize)
         {
@@ -91,7 +119,10 @@ public class PlayerMovement : MonoBehaviour
         {
             normalizedSpeed = currentSpeed;
         }
-        rb.linearVelocity = new UnityEngine.Vector2(horizontal * currentSpeed, rb.linearVelocity.y);
+        if (canMove)
+        {
+            rb.linearVelocity = new UnityEngine.Vector2(horizontal * currentSpeed, rb.linearVelocity.y);
+        }
     }
 
 
@@ -100,8 +131,8 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void TryJump()
     {
-        Debug.Log(jumpCounter);
-        if (isGrounded || (stateManager.CurrentStateName == StateManager.State.Wind && jumpCounter < 1)) // Jumping
+        //Debug.Log(jumpCounter);
+        if (isGrounded || (stateManager.CurrentStateName == StateManager.State.Wind && jumpCounter < 1) && GetComponent<PlayerHP>()) // Jumping
         {
             rb.linearVelocity = new UnityEngine.Vector2();
             jumpCounter++;
@@ -124,7 +155,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canRoll)
         {
-            StartCoroutine(AfterRoll());
+            normalizedSpeed = currentSpeed;
+            StartCoroutine(RollKD());
+            StartCoroutine(RollNormalizing());
             Roll();
         }
     }
@@ -133,15 +166,22 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Roll()
     {
+        SoundManager.Roll();
         animator.SetTrigger("Roll");
         isRolling = true;
         currentSpeed *= rollspeedModifier;
     }
-    private IEnumerator AfterRoll()
+    private IEnumerator RollKD()
     {
         canRoll = false;
         yield return new WaitForSeconds(rollingInterval);
         canRoll = true;
+        NormalizeSpeedAfterRoll();
+    }
+    private IEnumerator RollNormalizing()
+    {
+        yield return new WaitForSeconds(0.75f);
+        NormalizeSpeedAfterRoll();
     }
     public void NormalizeSpeedAfterRoll()
     {
@@ -160,19 +200,25 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void UpdateAnimation()
     {
-        //Debug.Log(isGrounded);
         animator.SetFloat("SpeedY", rb.linearVelocity.y);
         animator.SetBool("IsGround", isGrounded);
-        animator.SetBool("Run", isGrounded && Mathf.Abs(rb.linearVelocity.x) >= 0.5f);
+        animator.SetBool("Run", isGrounded && Mathf.Abs(rb.linearVelocityX) >= 0.5f);
     }
 
-
-    /// <summary>
-    /// Allowing Normalize method
-    /// </summary>
-    public void AllowNormalizing()
+    public IEnumerator BanNormalizing(float time)
     {
+        canNormalize = false;
+        yield return new WaitForSeconds(time);
         canNormalize = true;
+    }
+    public IEnumerator BanMoving(float time)
+    {
+        canMove = false;
+        rb.linearVelocity = UnityEngine.Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        yield return new WaitForSeconds(time);
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        canMove = true;
     }
     /// <summary>
     /// Normalize method
@@ -215,5 +261,9 @@ public class PlayerMovement : MonoBehaviour
         UnityEngine.Vector2 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+
+        Scaler = GetComponentInChildren<Canvas>().transform.localScale;
+        Scaler.x *= -1;
+        GetComponentInChildren<Canvas>().transform.localScale = Scaler;
     }
 }

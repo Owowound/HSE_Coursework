@@ -63,7 +63,7 @@ Material:
     - _PixelsInFire: 32
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SpeedX: 1
+    - _SpeedX: 0
     - _Step1: 0.015
     - _Step2: 0.219
     - _Step3: 0.481

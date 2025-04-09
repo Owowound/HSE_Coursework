@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Fire Skills
   m_EditorClassIdentifier: 
   skillInterval: 1
-  lastSkill: 0
+  lastSkill: 30.35028
+  playerData: {fileID: 11400000, guid: 7f2a5a1bd062f8b47b993db4216c716b, type: 2}
+  stateName: 1
   projectilePrefab: {fileID: 7495866705464288017, guid: 19348e01524cf3a49ba66410eb01850e, type: 3}
   projectileSpeed: 10
+  damage: 30

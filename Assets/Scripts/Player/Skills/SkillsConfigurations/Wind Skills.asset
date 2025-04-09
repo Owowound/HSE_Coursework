@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563c51c67a7c99a40b3cc05749ed2231, type: 3}
   m_Name: Wind Skills
   m_EditorClassIdentifier: 
+  skillInterval: 0
+  lastSkill: 0
+  playerData: {fileID: 11400000, guid: 7f2a5a1bd062f8b47b993db4216c716b, type: 2}
+  stateName: 3
   windSpeed: 5

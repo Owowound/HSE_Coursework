@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class EnemyDamage : MonoBehaviour
 {
-    private Collider2D zone;
-    [SerializeField] private float damage;
-    [SerializeField] private LayerMask playerLayer;
+    protected Collider2D zone;
+    [SerializeField] protected float damage;
+    [SerializeField] protected LayerMask playerLayer;
 
     protected virtual void Start()
     {
@@ -19,11 +19,15 @@ public abstract class EnemyDamage : MonoBehaviour
         var colliderNumber = Physics2D.OverlapCollider(zone, new ContactFilter2D { layerMask = playerLayer }, colliders);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.CompareTag("Player"))
+            Debug.Log(collider.name);
+            if (collider.CompareTag("Player") && collider.name == "Hitbox")
             {
-                HP player = collider.GetComponent<HP>();
-                player.TakeDamage(damage);
+                Debug.Log($"Подходит {collider.name}");
+                PlayerHP player = collider.GetComponentInParent<PlayerHP>();
+                player.TakeDamage(damage, DamageType.Default, null);
             }
         }
     }
+
+    public virtual void CauseDamage(DebuffObject[] debuffes) { }
 }

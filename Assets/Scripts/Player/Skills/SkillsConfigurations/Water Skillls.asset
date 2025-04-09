@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8b68fa810beef4ba6c4d952d31ccc9, type: 3}
   m_Name: Water Skillls
   m_EditorClassIdentifier: 
-  skillInterval: 2
-  lastSkill: 0
+  skillInterval: 0.7
+  lastSkill: 44.6467
+  playerData: {fileID: 11400000, guid: 7f2a5a1bd062f8b47b993db4216c716b, type: 2}
+  stateName: 5
   projectilePrefab: {fileID: 5173435202490285209, guid: 79eeddc79ac768047917a8407f7510c1, type: 3}
-  projectileSpeed: 2
+  projectileSpeed: 8
+  damage: 20

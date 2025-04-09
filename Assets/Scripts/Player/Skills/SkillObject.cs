@@ -11,12 +11,22 @@ public class SkillObject : ScriptableObject
 
     [SerializeField] protected float skillInterval;
     public float SkillInterval { get {  return skillInterval; } }
-    [SerializeField] protected float lastSkill;
+    [SerializeField] protected float lastSkill = 0;
+
+
+    [SerializeField] protected PlayerData playerData;
+
+    [SerializeField]
+    protected StateManager.State stateName;
+
+    [SerializeField] protected float damage;
+
+    public float Damage { get { return damage; } }
 
     public virtual void SetActive(GameObject player)
     {
-        Debug.Log($"Activate state {this.name}");
-        lastSkill = Time.time;
+        Debug.Log($"Activate state {this.name} with level {playerData.Levels[stateName]}");
+        lastSkill = Time.time - skillInterval + 0.25f;
         isActive = true;
     }
 
@@ -29,5 +39,10 @@ public class SkillObject : ScriptableObject
     public virtual void UseSkill(GameObject player)
     {
         Debug.Log($"{this.name} skill is used");
+    }
+
+    public virtual void UpgradeSkill()
+    {
+        Debug.Log($"{this.name} was upgraded");
     }
 }

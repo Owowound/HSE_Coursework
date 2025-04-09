@@ -7,7 +7,7 @@ public class StoneAwake : MonoBehaviour
     private StoneMovement sm;
     private void Start()
     {
-        sm = GetComponent<StoneMovement>();
+        sm = GetComponentInParent<StoneMovement>();
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {

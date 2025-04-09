@@ -33,6 +33,9 @@ public class FireMovement : MonoBehaviour
 
     private Rigidbody2D project = null;
 
+    [SerializeField]
+    private SoundManager soundManager;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -93,6 +96,7 @@ public class FireMovement : MonoBehaviour
 
     void Shoot()
     {
+        SoundManager.FireBallCast();
         lastShoot = Time.time;
         Vector2 spawnPosition = transform.position;
 

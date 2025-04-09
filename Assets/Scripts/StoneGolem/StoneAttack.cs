@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Tilemaps;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
 
 public class StoneAttack : MonoBehaviour
 {
+    [Header("Player")]
     [SerializeField] private Rigidbody2D player;
     private Rigidbody2D rb;
     private StoneMovement sm;
@@ -14,20 +12,25 @@ public class StoneAttack : MonoBehaviour
     private StoneDamage1 damage1;
     private StoneDamage3 damage3;
 
-
+    [Header("Attack Features")]
     [SerializeField] private float attack1Interval;
+    [SerializeField] private DebuffObject[] debuffes;
     [SerializeField] private float attack2Interval;
     [SerializeField] private float attack3Interval;
     [SerializeField] private float dashSpeed;
-    public List<bool> canAttack = new List<bool>() { true, true, true };
 
+    private List<bool> canAttack = new List<bool>() { true, true, true };
+
+    [Header("Flight offset")]
     [SerializeField] private Vector2 flightOffset;
 
+    [Header("Projectile features")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private Vector2 projectileOffset;
     [SerializeField] private GameObject projectileSpawwnPosition;
 
+    [Header("Layers")]
     [SerializeField] private LayerMask groundLayer;
 
 
@@ -71,9 +74,11 @@ public class StoneAttack : MonoBehaviour
             canAttack[1] = false;
             return;
         }
+        Debug.Log("Attack was not chose");
     }
     public void Attack(string number)
     {
+        StartCoroutine(WaitForAct());
         Vector2 direction = player.position - (Vector2)transform.position;
         sm.CanAct = false;
         animator.SetTrigger(number);
@@ -85,16 +90,16 @@ public class StoneAttack : MonoBehaviour
         {
             rb.gravityScale = 5f;
         }
-        StartCoroutine(WaitForAct());
     }
     public void Attack1Effect()
     {
-        damage1.CauseDamage();
-        rb.gravityScale = 0;
         StartCoroutine(WaitForNextAttack(attack1Interval, 0));
+        damage1.CauseDamage(debuffes);
+        rb.gravityScale = 0;
     }
     public void Attack2Effect()
     {
+        StartCoroutine(WaitForNextAttack(attack2Interval, 1));
         Vector2 spawnPosition = projectileSpawwnPosition.transform.position;
 
         GameObject projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
@@ -105,12 +110,11 @@ public class StoneAttack : MonoBehaviour
 
         Rigidbody2D projRB = projectile.GetComponent<Rigidbody2D>();
         projRB.linearVelocity = direction * projectileSpeed;
-        StartCoroutine(WaitForNextAttack(attack2Interval, 1));
     }
     public void Attack3Effect()
     {
-        damage3.CauseDamage();
         StartCoroutine(WaitForNextAttack(attack3Interval, 2));
+        damage3.CauseDamage();
     }
     private IEnumerator StoneDash()
     {

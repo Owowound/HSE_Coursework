@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9777dc4e1a980e4fa7be59e6d62e5be, type: 3}
   m_Name: PlayerStun
   m_EditorClassIdentifier: 
-  effectDuration: 2
+  effectDuration: 1
+  forInterface: {fileID: 1634556520282015937, guid: f4572520c4e917e4d8617be6667a1af8, type: 3}

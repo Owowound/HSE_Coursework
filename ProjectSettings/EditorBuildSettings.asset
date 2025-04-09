@@ -8,12 +8,39 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Home.unity
     guid: 0e4ca4439ae2ace499d6a7ae94001185
   - enabled: 1
-    path: Assets/Scenes/FireLocation.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: 7ef66c469d7775041af5a9688312b7ea
+  - enabled: 1
+    path: Assets/Scenes/ChooseScene.unity
+    guid: f82b453771c0b874384390ed9767937b
+  - enabled: 1
+    path: Assets/Scenes/Fire.unity
     guid: fcc522436b52b044c84a862c76b319a4
+  - enabled: 1
+    path: Assets/Scenes/Lightning.unity
+    guid: cdfaa2788c4d6664c88b58833cbd40cb
+  - enabled: 1
+    path: Assets/Scenes/Stone.unity
+    guid: 814e7bb2f01981c49ba40a32021b7a0d
+  - enabled: 0
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 7282f1542af51ce4984566313dfa4d4c
+  - enabled: 0
+    path: Assets/Scenes/ChooseUpgradeScene.unity
+    guid: fb0394a3e182edc47be600903f91b04f
+  - enabled: 1
+    path: Assets/Scenes/NewGameScene.unity
+    guid: 8e6ec282656e1eb44a898c05804993c8
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 6f955ff2a35126749b150bc0a1a64c36
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 502adb0ba9e8b7746acbaae57f90f4dd
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}
   m_UseUCBPForAssetBundles: 0

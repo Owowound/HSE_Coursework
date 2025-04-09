@@ -29,6 +29,11 @@ public class StateManager : MonoBehaviour
         {
         get {return currentState.Value; }
         }
+
+    [SerializeField]
+    private List<GameObject> interfaces = new List<GameObject>(5);
+
+    private int currentStateId = 5;
     void Start()
     {
         Debug.Log("StateManager is initialized");
@@ -51,8 +56,14 @@ public class StateManager : MonoBehaviour
 
     public void ChangeState(int newStateId)
     {
+        interfaces[currentStateId].SetActive(false);
+        interfaces[newStateId].SetActive(true);
+
         currentState.Value.SetUnactive(this.gameObject);
         currentState = listOfStates[newStateId];
         currentState.Value.SetActive(this.gameObject);
+        currentStateId = newStateId;
     }
+
+
 }

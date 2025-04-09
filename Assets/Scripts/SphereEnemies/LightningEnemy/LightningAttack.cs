@@ -1,33 +1,32 @@
+using System.Collections;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class LightningAttack : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+    [SerializeField] private GameObject lightningParticle;
+    [SerializeField] private Rigidbody2D player;
+    [SerializeField] private Rigidbody2D owner;
     [SerializeField] private float activationDistance;
-    private ParticleSystem currentParticle;
-    [SerializeField] private Vector3 startRotation;
-
-    private void Start()
-    {
-        transform.rotation = Quaternion.Euler(startRotation.x, startRotation.y, startRotation.z);
-    }
+    [SerializeField] private float attackInterval;
+    private bool canAttack = true;
 
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (distanceToPlayer <= activationDistance)
+        if (Vector3.Distance(player.position, owner.position) < activationDistance && canAttack)
         {
-            return;
-        }
-        else
-        {
-            return;
+            SoundManager.LightningCast();
+            Instantiate(lightningParticle, owner.position, Quaternion.identity);
+            StartCoroutine(WaitForLightningAttack());
         }
     }
 
-    private void DamagePlayer()
+    private IEnumerator WaitForLightningAttack()
     {
-        return;
+        canAttack = false;
+
+        yield return new WaitForSeconds(attackInterval);
+
+        canAttack = true;
     }
 }

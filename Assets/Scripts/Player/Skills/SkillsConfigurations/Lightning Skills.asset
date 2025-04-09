@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48a145e4a329354093a0638f3fac480, type: 3}
   m_Name: Lightning Skills
   m_EditorClassIdentifier: 
+  skillInterval: 1.5
+  lastSkill: 4.9037805
+  playerData: {fileID: 11400000, guid: 7f2a5a1bd062f8b47b993db4216c716b, type: 2}
+  stateName: 4
+  skillLightning: {fileID: 3638378888475346371, guid: 78039cbf21c15e9429ca17c69df50e5b, type: 3}
+  damage: 50

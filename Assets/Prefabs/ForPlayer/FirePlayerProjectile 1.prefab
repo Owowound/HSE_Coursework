@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2499812807191773297}
   - component: {fileID: 3756213796505245173}
-  - component: {fileID: 6625516643556651919}
   - component: {fileID: 1330423124496874821}
   - component: {fileID: -870881195912689820}
+  - component: {fileID: 4721820904484962557}
+  - component: {fileID: -4368675138114677925}
   m_Layer: 0
   m_Name: FirePlayerProjectile 1
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 19
+  m_SortingOrder: 21
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -90,25 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6625516643556651919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7495866705464288017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b554518f3293090408fe212d161fde20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 7618543361142906511, guid: 360f82c9f2ce71047b19aa684fa5806c, type: 3}
-  damage: 35
-  DamageZone: {fileID: 0}
-  explosionRadius: 1.287458
-  lifeTime: 3
-  tagAttribute: Enemy
-  ownerTag: Player
 --- !u!50 &1330423124496874821
 Rigidbody2D:
   serializedVersion: 5
@@ -172,3 +154,34 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.008067369, y: -0.095464885}
   m_Radius: 0.106039464
+--- !u!114 &4721820904484962557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495866705464288017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70cbc7e7ea9ae4f499ac758c4f88f01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 7618543361142906511, guid: 360f82c9f2ce71047b19aa684fa5806c, type: 3}
+  damage: 0
+  explosionRadius: 2
+  tagAttribute: Enemy
+  ownerTag: Player
+  playerData: {fileID: 11400000, guid: 7f2a5a1bd062f8b47b993db4216c716b, type: 2}
+--- !u!114 &-4368675138114677925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495866705464288017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63693a129c1ea0d4882ae2d6cd966513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 0.65

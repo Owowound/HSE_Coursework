@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6625516643556651919}
   - component: {fileID: 1330423124496874821}
   - component: {fileID: -870881195912689820}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FireEnemyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,16 +99,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7495866705464288017}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b554518f3293090408fe212d161fde20, type: 3}
+  m_Script: {fileID: 11500000, guid: 53a393b31f9ac8545966393c9515e738, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 7618543361142906511, guid: 360f82c9f2ce71047b19aa684fa5806c, type: 3}
   damage: 35
   DamageZone: {fileID: 0}
-  explosionRadius: 1.287458
-  lifeTime: 3
+  explosionRadius: 3
+  lifeTime: 4
   tagAttribute: Player
   ownerTag: Enemy
+  debuff: {fileID: 11400000, guid: 7c6d5780a35902a41bc55bfc8df43ba1, type: 2}
 --- !u!50 &1330423124496874821
 Rigidbody2D:
   serializedVersion: 5

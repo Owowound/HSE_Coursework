@@ -17,8 +17,6 @@ public class LightningMovement : MonoBehaviour
     [SerializeField] private float hoverSpeed;
     [SerializeField] private float timeBeforeOffset;
 
-    [SerializeField] private float shootDistance;
-
 
     private float randomOffsetX;
     private float randomOffsetY;

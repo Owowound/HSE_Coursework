@@ -6,12 +6,17 @@ using UnityEngine;
 public class StoneSkills : SkillObject
 {
     [SerializeField] private float modifier;
+
+    public float Modifier { get { return modifier; } }
+
     public override void SetActive(GameObject player)
     {
-        player.GetComponent<PlayerHP>().damageModifier = modifier;
-        player.GetComponent<PlayerAttack>().DamageModifier = modifier;
+        SoundManager.StoneSkillActivate();
+        float currentModifier = modifier - (float)playerData.Levels[StateManager.State.Stone] / 25f;
+        player.GetComponent<PlayerHP>().damageModifier = currentModifier;
+        player.GetComponent<PlayerAttack>().DamageModifier = currentModifier;
         isActive = true;
-        Debug.Log($"Activate state {this.name}");
+        Debug.Log($"Activate state {this.name} with modifier {currentModifier}");
     }
     public override void SetUnactive(GameObject player)
     {

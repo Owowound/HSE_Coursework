@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1492267624569977278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2784105362626193593}
+  - component: {fileID: 3197033694458899400}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2784105362626193593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492267624569977278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.904889, y: -1.8884571, z: 1334.7692}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3197033694458899400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492267624569977278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb00e3bd59cd6345a100157b9e0dbbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 0}
+  playerAttack:
+  - {fileID: 8300000, guid: 209f478cd38c3cb4ea627e993e6fb0b3, type: 3}
+  - {fileID: 8300000, guid: 16367e8d8f170eb4883b1d088dc1023e, type: 3}
+  - {fileID: 8300000, guid: 1902686b8bb920f4a85c46c15fa8133d, type: 3}
+  playerChangeState: {fileID: 8300000, guid: c55e31432b306e9429e168710dc74736, type: 3}
+  fireSkillActivation: {fileID: 8300000, guid: 229907000cdac4140a9c26e006fa3d41, type: 3}
+  stoneSkillActivation: {fileID: 8300000, guid: 94ea5c2645b7e2141a7e6d57d95d4fd5, type: 3}
+  windSkillActivation: {fileID: 8300000, guid: 0a6495012c4c8bd41810aa6cfba3bd1c, type: 3}
+  lightningSkillActivation: {fileID: 8300000, guid: 6cfa80122f7d842409200cb379b1179d, type: 3}
+  waterSkillActivation: {fileID: 8300000, guid: c29af5e9d5098c64d96ee19c8167ce48, type: 3}
+  playerDamage: {fileID: 8300000, guid: 69b853c0dfe74f94b86db98eb1d32779, type: 3}
+  playerDeath: {fileID: 8300000, guid: e99528e345ffbdb4083b39ce0abd4de9, type: 3}
+  playerRoll: {fileID: 8300000, guid: 642ce09fffc971349b3bc82467ce031c, type: 3}
+  buttonClick: {fileID: 8300000, guid: e1c534ef619d0114b8ae456a302a3881, type: 3}
+  enemyDamage:
+  - {fileID: 8300000, guid: aedc285e7d1a31b4482fc5d82dae3bcd, type: 3}
+  - {fileID: 8300000, guid: 30250425d30988647a2d1a0e2cea48ad, type: 3}
+  portalSound: {fileID: 0}
+  cristallSound: {fileID: 0}
+  fireballCast: {fileID: 8300000, guid: 412409585be0ebb46aee036d323843e8, type: 3}
+  lightningCast: {fileID: 8300000, guid: 426d6717af4c9e24eb8034897eba7427, type: 3}
+  waterCast: {fileID: 8300000, guid: 05eb2965a8a3219448b038db9f969074, type: 3}
+  fireExplosion: {fileID: 8300000, guid: fcc4d5d9c68de684189a81a627eb1a68, type: 3}
+  waterHit: {fileID: 8300000, guid: 2791344d08b0c87488b03cd1dc318a39, type: 3}

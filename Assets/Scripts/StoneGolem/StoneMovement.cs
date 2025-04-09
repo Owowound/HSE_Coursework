@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine;
 
 public class StoneMovement : MonoBehaviour
 {
@@ -127,6 +123,11 @@ public class StoneMovement : MonoBehaviour
         UnityEngine.Vector2 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+
+
+        Scaler = GetComponentInChildren<Canvas>().transform.localScale;
+        Scaler.x *= -1;
+        GetComponentInChildren<Canvas>().transform.localScale = Scaler;
     }
 
     

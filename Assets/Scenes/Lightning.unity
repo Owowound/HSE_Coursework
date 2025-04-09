@@ -378,10 +378,6 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1720518089}
-    - target: {fileID: 1134642110526611846, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
-      propertyPath: soundManager
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2295366686927025489, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
       propertyPath: parentGrid
       value: 
@@ -390,34 +386,10 @@ PrefabInstance:
       propertyPath: sliderHP
       value: 
       objectReference: {fileID: 485349982}
-    - target: {fileID: 2788071150756653862, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
-      propertyPath: playerData
-      value: 
-      objectReference: {fileID: 11400000, guid: 7f2a5a1bd062f8b47b993db4216c716b, type: 2}
-    - target: {fileID: 2788071150756653862, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
-      propertyPath: textDamagePrefab
-      value: 
-      objectReference: {fileID: 3841741619929319999, guid: 2532c202002df1b40b092c321a063250, type: 3}
-    - target: {fileID: 6422429941185870774, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
-      propertyPath: m_SortingOrder
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 7010029519967039383, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
-      propertyPath: fireEXP
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 7010029519967039383, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
-      propertyPath: stoneGolemEXP
-      value: 75
-      objectReference: {fileID: 0}
     - target: {fileID: 7010029519967039383, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
       propertyPath: playerUIManager
       value: 
       objectReference: {fileID: 641169551}
-    - target: {fileID: 7010029519967039383, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
-      propertyPath: LightningEnemyEXP
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 8326710051701581379, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1447,6 +1419,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.32128906, y: 1.7897263}
   m_EdgeRadius: 0
+--- !u!82 &344756410 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 711768119632823754, guid: 7033767fa9f07b74a805a12cc03f64d3, type: 3}
+  m_PrefabInstance: {fileID: 1331513677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &350581600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,6 +1759,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3654773273352695636, guid: a584f27821d3c2f479eb409f1e7f8b42, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3654773273352695636, guid: a584f27821d3c2f479eb409f1e7f8b42, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4304396474323824274, guid: a584f27821d3c2f479eb409f1e7f8b42, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1796,6 +1781,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4304396474323824274, guid: a584f27821d3c2f479eb409f1e7f8b42, type: 3}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861499287489693942, guid: a584f27821d3c2f479eb409f1e7f8b42, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861499287489693942, guid: a584f27821d3c2f479eb409f1e7f8b42, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861499287489693942, guid: a584f27821d3c2f479eb409f1e7f8b42, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5639308338454861956, guid: a584f27821d3c2f479eb409f1e7f8b42, type: 3}
@@ -2709,6 +2706,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &620455472 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3857297004316160496, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
+  m_PrefabInstance: {fileID: 83644686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &624509113
 GameObject:
   m_ObjectHideFlags: 0
@@ -5697,10 +5699,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2142142873509851692, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
+      propertyPath: playerJump
+      value: 
+      objectReference: {fileID: 8300000, guid: 004e67e193fc1e64da713ba8df55d1a3, type: 3}
     - target: {fileID: 3744405714175324561, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
       propertyPath: m_Name
       value: Audio
       objectReference: {fileID: 0}
+    - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
+      propertyPath: effects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
+      propertyPath: 'effects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 344756410}
+    - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
+      propertyPath: 'effects.Array.data[2]'
+      value: 
+      objectReference: {fileID: 620455472}
     - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
       propertyPath: 'ambients.Array.data[0]'
       value: 
@@ -10886,6 +10904,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1703819394}
     m_Modifications:
+    - target: {fileID: 711768119632823754, guid: 7033767fa9f07b74a805a12cc03f64d3, type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 4684874463580262724, guid: 7033767fa9f07b74a805a12cc03f64d3, type: 3}
       propertyPath: m_Name
       value: "\u0424\u0430\u043A\u0435\u043B_0"

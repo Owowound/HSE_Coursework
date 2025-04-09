@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.AppUI.UI;
 using UnityEngine;
 
 public class BossHP : HP
@@ -40,6 +41,12 @@ public class BossHP : HP
         {
             return;
         }
+
+        if (currentHP == maxHP && GetComponent<BossMovement>().currentState == BossMovement.State.Wait)
+        {
+            GetComponent<BossAwake>().GolemAwake();
+        }
+
         SoundManager.EnemyDamage();
         damage = CalculatingDamage(damage, damageType);
         currentHP -= damage;
@@ -60,6 +67,7 @@ public class BossHP : HP
             Die();
         }
 
+
     }
 
     private void AddHP(float hp)
@@ -78,7 +86,7 @@ public class BossHP : HP
     public IEnumerator Heal(float healAmount, int healCounter)
     {
 
-        yield return new WaitForSeconds(0.075f);
+        yield return new WaitForSeconds(0.025f);
 
 
         AddHP(1);

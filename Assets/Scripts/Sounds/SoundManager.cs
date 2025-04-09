@@ -32,6 +32,8 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField]
     private AudioClip playerRoll;
+    [SerializeField]
+    private AudioClip playerJump;
 
     [SerializeField]
     private AudioClip buttonClick;
@@ -143,6 +145,11 @@ public class SoundManager : MonoBehaviour
         instance.source.PlayOneShot(instance.playerRoll);
     }
 
+    public static void Jump()
+    {
+        instance.source.PlayOneShot(instance.playerJump);
+    }
+
     public static void UsePortal()
     {
         instance.source.PlayOneShot(instance.portalSound);
@@ -156,4 +163,5 @@ public class SoundManager : MonoBehaviour
     {
         instance.source.PlayOneShot(instance.buttonClick);
     }
+
 }

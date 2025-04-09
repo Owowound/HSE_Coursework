@@ -87,6 +87,7 @@ public class BossMovement : MonoBehaviour
 
     public void GolemAwake()
     {
+        currentState = BossMovement.State.Awake;
         Vector2 flightPosition = (Vector2)transform.position + flightOffset;
         transform.position = Vector2.Lerp(transform.position, flightPosition, movespeed * Time.deltaTime);
         if (transform.position.y >= maxAttitude.y)

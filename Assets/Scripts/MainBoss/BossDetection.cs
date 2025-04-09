@@ -13,14 +13,15 @@ public class BossAwake : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        //Debug.Log(collider.name);
-        //Debug.Log(sm.currentState);
         if (collider.CompareTag("Player") && sm.currentState == BossMovement.State.Wait)
         {
-            //Debug.Log("Awake");
-            sm.GolemAwake();
-            HpBar.GetComponent<Animator>().SetTrigger("Activate");
-            sm.currentState = BossMovement.State.Awake;
+            GolemAwake();
         }
+    }
+
+    public void GolemAwake()
+    {
+        sm.GolemAwake();
+        HpBar.GetComponent<Animator>().SetTrigger("Activate");
     }
 }

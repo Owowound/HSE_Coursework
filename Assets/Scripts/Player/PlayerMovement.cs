@@ -49,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
     private Pause pause;
+
+    private bool isWalkSoundPlaying = false;
     void Start()
     {
         Debug.Log("PlayerMovement is initialized");
@@ -108,7 +110,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            horizontal = 0;    
+            horizontal = 0;
+            GetComponentInChildren<AudioSource>().Stop();
+            isWalkSoundPlaying = false;
         }
 
         if (canNormalize)
@@ -122,6 +126,27 @@ public class PlayerMovement : MonoBehaviour
         if (canMove)
         {
             rb.linearVelocity = new UnityEngine.Vector2(horizontal * currentSpeed, rb.linearVelocity.y);
+                if (Mathf.Abs(horizontal) > 0.1f && isGrounded)
+                {
+                    if (!isWalkSoundPlaying)
+                    {
+                        GetComponentInChildren<AudioSource>().Play();
+                        isWalkSoundPlaying = true;
+                    }
+                }
+                else
+                {
+                    Debug.Log("Œ—“¿ÕŒ¬ ¿");
+                    GetComponentInChildren<AudioSource>().Stop();
+                    isWalkSoundPlaying = false;
+                }
+        } else
+        {
+            if (isWalkSoundPlaying)
+            {
+                GetComponentInChildren<AudioSource>().Stop();
+                isWalkSoundPlaying = false;
+            }
         }
     }
 
@@ -132,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
     public void TryJump()
     {
         //Debug.Log(jumpCounter);
-        if (isGrounded || (stateManager.CurrentStateName == StateManager.State.Wind && jumpCounter < 1) && GetComponent<PlayerHP>()) // Jumping
+        if (isGrounded || (stateManager.CurrentStateName == StateManager.State.Wind && jumpCounter < 1) && GetComponent<PlayerHP>())
         {
             rb.linearVelocity = new UnityEngine.Vector2();
             jumpCounter++;
@@ -144,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     void Jump()
     {
+        SoundManager.Jump();
         rb.AddForce(UnityEngine.Vector2.up * jumpForce, ForceMode2D.Impulse);
         animator.SetTrigger("Jump");
     }

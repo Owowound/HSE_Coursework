@@ -48,7 +48,6 @@ public class StoneMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //Debug.Log(currentState);
         switch(currentState)
         {
             case State.Wait:

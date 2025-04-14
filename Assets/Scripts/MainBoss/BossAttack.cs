@@ -83,7 +83,6 @@ public class BossAttack : MonoBehaviour
         Vector2 direction = player.position - (Vector2)transform.position;
         sm.CanAct = false;
         animator.SetTrigger(number);
-        Debug.Log(number);
         if (number == "Attack3")
         {
             StartCoroutine(StoneDash());
@@ -97,14 +96,12 @@ public class BossAttack : MonoBehaviour
     public void Attack1Effect()
     {
         StartCoroutine(WaitForNextAttack(attack1Interval, 0));
-        Debug.Log("1Attack1");
         damage1.CauseDamage(debuffes);
         rb.gravityScale = 0;
     }
     public void Attack2Effect()
     {
         StartCoroutine(WaitForNextAttack(attack2Interval, 1));
-        Debug.Log("1Attack2");
         Vector2 spawnPosition = projectileSpawwnPosition.transform.position;
 
         System.Random rnd = new System.Random();
@@ -120,7 +117,6 @@ public class BossAttack : MonoBehaviour
     public void Attack3Effect()
     {
         StartCoroutine(WaitForNextAttack(attack3Interval, 2));
-        Debug.Log("1Attack3");
         damage3.CauseDamage();
     }
     private IEnumerator StoneDash()

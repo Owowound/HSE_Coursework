@@ -19,10 +19,8 @@ public abstract class EnemyDamage : MonoBehaviour
         var colliderNumber = Physics2D.OverlapCollider(zone, new ContactFilter2D { layerMask = playerLayer }, colliders);
         foreach (Collider2D collider in colliders)
         {
-            Debug.Log(collider.name);
             if (collider.CompareTag("Player") && collider.name == "Hitbox")
             {
-                Debug.Log($"Подходит {collider.name}");
                 PlayerHP player = collider.GetComponentInParent<PlayerHP>();
                 player.TakeDamage(damage, DamageType.Default, null);
             }

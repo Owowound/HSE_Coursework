@@ -2589,6 +2589,11 @@ Transform:
   - {fileID: 676545756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1072273669 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3857297004316160496, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
+  m_PrefabInstance: {fileID: 478673205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1080622616
 GameObject:
   m_ObjectHideFlags: 0
@@ -8175,7 +8180,7 @@ Transform:
   m_GameObject: {fileID: 1371682307}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13, y: -0.27, z: -10}
+  m_LocalPosition: {x: -0.67, y: 1.24, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8775,7 +8780,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -9212,9 +9217,17 @@ PrefabInstance:
       value: Audio
       objectReference: {fileID: 0}
     - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
+      propertyPath: effects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
       propertyPath: ambients.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
+      propertyPath: 'effects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1072273669}
     - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
       propertyPath: 'ambients.Array.data[0]'
       value: 

@@ -136,7 +136,6 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Œ—“¿ÕŒ¬ ¿");
                     GetComponentInChildren<AudioSource>().Stop();
                     isWalkSoundPlaying = false;
                 }
@@ -156,7 +155,6 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void TryJump()
     {
-        //Debug.Log(jumpCounter);
         if (isGrounded || (stateManager.CurrentStateName == StateManager.State.Wind && jumpCounter < 1) && GetComponent<PlayerHP>())
         {
             rb.linearVelocity = new UnityEngine.Vector2();

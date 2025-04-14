@@ -12,7 +12,6 @@ public class FireHP : HP
         if (damage > 0)
         {
             GameObject damageObject = Instantiate(textDamagePrefab, transform.position, Quaternion.identity);
-            Debug.Log(damageObject.name);
             damageObject.transform.SetParent(canvas.transform);
             damageObject.transform.localScale = Vector3.one;
             damageObject.GetComponent<TextMeshProUGUI>().text = "-" + damage.ToString();

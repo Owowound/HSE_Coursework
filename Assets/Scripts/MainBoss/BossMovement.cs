@@ -102,7 +102,6 @@ public class BossMovement : MonoBehaviour
         {
             if (canHeal && GetComponent<PhaseManager>().phaseNum == 1)
             {
-                Debug.Log("HEALING");
                 CanAct = false;
                 canHeal = false;
                 isHealing = true;
@@ -145,7 +144,6 @@ public class BossMovement : MonoBehaviour
     private void MoveToPlayer()
     {
         Vector2 direction;
-        Debug.Log($"Phase num = {GetComponent<PhaseManager>().phaseNum}");
         switch (GetComponent<PhaseManager>().phaseNum) {
             case 0:
                 direction = (player.position + flightOffset) - (Vector2)transform.position;

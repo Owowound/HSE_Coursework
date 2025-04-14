@@ -56,7 +56,6 @@ public class BossAttackPhase2 : MonoBehaviour
     public bool InLightningZone { get; set; }
     private void Start()
     {
-        Debug.Log($"{Time.time} {canAttack[0]} {canAttack[1]} {canAttack[2]}");
         sm = GetComponent<BossMovement>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -88,7 +87,6 @@ public class BossAttackPhase2 : MonoBehaviour
         Vector2 direction = player.position - (Vector2)transform.position;
         sm.CanAct = false;
         animator.SetTrigger(number);
-        Debug.Log(number);
         if (number == "Attack1")
         {
             rb.gravityScale = 5f;
@@ -127,10 +125,8 @@ public class BossAttackPhase2 : MonoBehaviour
     }
     private IEnumerator WaitForNextAttack2(float time, int num)
     {
-        Debug.Log($"Cannot attack {num + 1}");
         canAttack[num] = false;
         yield return new WaitForSeconds(time);
-        Debug.Log($"Can attack {num + 1}");
         canAttack[num] = true;
     }
     public IEnumerator WaitForAct2()

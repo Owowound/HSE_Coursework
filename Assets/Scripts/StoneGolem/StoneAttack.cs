@@ -59,22 +59,18 @@ public class StoneAttack : MonoBehaviour
         if (inAttack3Zone && canAttack[2])
         {
             Attack("Attack3");
-            canAttack[2] = false;
             return;
         }
         if (inAttack1Zone && canAttack[0])
         {
             Attack("Attack1");
-            canAttack[0] = false;
             return;
         }
         if (canAttack[1])
         {
             Attack("Attack2");
-            canAttack[1] = false;
             return;
         }
-        Debug.Log("Attack was not chose");
     }
     public void Attack(string number)
     {

@@ -36,11 +36,9 @@ public class PlayerHP : HP
             return;
         }
         damage = CalculatingDamage(damage, damageType);
-        Debug.Log(damage);
         if (damage > 0)
         {
             GameObject damageObject = Instantiate(textDamagePrefab, transform.position, Quaternion.identity);
-            Debug.Log(damageObject.name);
             damageObject.transform.SetParent(canvas.transform);
             damageObject.transform.localScale = Vector3.one;
             damageObject.GetComponent<TextMeshProUGUI>().text = "-" + damage.ToString();
@@ -94,7 +92,6 @@ public class PlayerHP : HP
 
         yield return new WaitForSeconds(0.025f);
 
-        Debug.Log(healCounter);
 
         AddHP(1);
         healCounter++;

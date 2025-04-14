@@ -4225,6 +4225,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
+--- !u!82 &1508921550 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3857297004316160496, guid: 6bfbd5af5c23d8e46a714aa9c1bf4970, type: 3}
+  m_PrefabInstance: {fileID: 1508921549}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1536034882
 GameObject:
   m_ObjectHideFlags: 0
@@ -10693,7 +10698,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3517003094039996465, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
       propertyPath: m_Volume
-      value: 0.15
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3744405714175324561, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
       propertyPath: m_Name
@@ -10701,12 +10706,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
       propertyPath: effects.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
       propertyPath: 'effects.Array.data[1]'
       value: 
       objectReference: {fileID: 5376233775066397639}
+    - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
+      propertyPath: 'effects.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1508921550}
     - target: {fileID: 5560439311034510932, guid: 5a9ab7cedc6bf56468c01c0745b7c169, type: 3}
       propertyPath: 'ambients.Array.data[0]'
       value: 

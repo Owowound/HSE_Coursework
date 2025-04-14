@@ -15,7 +15,6 @@ public class StoneAwake : MonoBehaviour
         //Debug.Log(sm.currentState);
         if (collider.CompareTag("Player") && sm.currentState == StoneMovement.State.Wait)
         {
-            //Debug.Log("Awake");
             sm.GolemAwake();
             sm.currentState = StoneMovement.State.Awake;
         }

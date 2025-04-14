@@ -17,7 +17,6 @@ public class LoadButton : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log($"button {File.Exists(saveLoadManager.FilePath)}");
         button.onClick.AddListener(ClickButton);
         ButtonIsPressed += LoadScene;
 

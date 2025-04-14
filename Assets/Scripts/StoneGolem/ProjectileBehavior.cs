@@ -14,11 +14,9 @@ public class StoneProjectileBehavior : MonoBehaviour
         {
             return;
         }
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Player") && collision.name == "Hitbox")
         {
             HP playerHP = collision.gameObject.GetComponentInParent<HP>();
-            //Debug.Log(damage);
             playerHP.TakeDamage(damage, DamageType.Default);
         }
         Destroy(gameObject);

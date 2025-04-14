@@ -10,7 +10,6 @@ public class Cristall : InteractiveObject
     void Start()
     {
         ParticleSystem particleSystem = GetComponentInChildren<ParticleSystem>();
-        Debug.Log(particleSystem.name);
         if (particleSystem != null)
         {
             particleSystem.Play();

@@ -753,6 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 300
   sliderHP: {fileID: 0}
+  canTakeDamage: 1
   textDamagePrefab: {fileID: 3841741619929319999, guid: 2532c202002df1b40b092c321a063250, type: 3}
   canvas: {fileID: 8285868095256566177}
   hitbox: {fileID: 4879392904843029359}

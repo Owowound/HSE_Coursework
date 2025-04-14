@@ -73,7 +73,6 @@ public abstract class HP : MonoBehaviour
     {
         if (damage > 0)
         {
-            //Debug.Log(animator);
             animator.SetTrigger("TakeDamage");
         }
     }

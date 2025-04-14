@@ -15,7 +15,7 @@ public class PhaseManager : MonoBehaviour
 
     public void ChangePhase()
     {
-        Debug.Log($"Change at {Time.time}");
+        Debug.Log("State was chose");
         GetComponent<BossMovement>().phaseIsChanging = true;
         GetComponent<BossHP>().canTakeDamage = false;
         phaseNum = 1;
